@@ -1,0 +1,42 @@
+From 709ea099d21610864b9d8c61bb0bb77f8acb0d91 Mon Sep 17 00:00:00 2001
+From: jatinpahuja16 <jatinpahuja16@gmail.com>
+Date: Wed, 3 Jun 2020 00:25:49 +0530
+Subject: [PATCH] Create Patch File
+
+---
+ client3.py | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/client3.py b/client3.py
+index f1771c3..0a98dcb 100644
+--- a/client3.py
++++ b/client3.py
+@@ -30,8 +30,7 @@ QUERY = "http://localhost:8080/query?id={}"
+ N = 500
+ 
+ def getDataPoint(quote):
+-	""" Produce all of the needed values to generate a datapoint """
+-	""" ------------- Update this function ------------- """
++
+ 	stock = quote['stock']
+ 	bid_price = float(quote['top_bid']['price'])
+ 	ask_price = float(quote['top_ask']['price'])
+@@ -39,10 +38,11 @@ def getDataPoint(quote):
+ 	return stock, bid_price, ask_price, price
+ 
+ def getRatio(price_a, price_b):
+-	""" Get ratio of price_a and price_b """
+-	""" ------------- Update this function ------------- """
+-	""" Also create some unit tests for this function in client_test.py """
+-	return 1
++    try:
++        ratio = price_a / price_b
++        return ratio
++    except ZeroDivisionError:
++        return -1
+ 
+ # Main
+ if __name__ == "__main__":
+-- 
+2.25.1.windows.1
+
